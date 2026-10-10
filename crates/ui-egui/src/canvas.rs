@@ -1781,6 +1781,7 @@ fn pro_tabs(app: &mut PhotocraftApp, ui: &mut egui::Ui) -> TabStrip {
     let large_tabs = app.session.prefs().workspace.large_tabs;
     let font = egui::FontId::proportional(if large_tabs { 13.0 } else { 11.5 });
     let tab_h = if large_tabs { 34.0 } else { 26.0 };
+    ui.spacing_mut().item_spacing.y = 0.0;
     let (strip, _) = ui.allocate_exact_size(egui::vec2(ui.available_width(), tab_h), Sense::hover());
     ui.painter().rect_filled(strip, 0.0, t.tab_strip);
     // Files opening in the background (#210) are tabs too ("name (Opening… 45%)" with a progress
